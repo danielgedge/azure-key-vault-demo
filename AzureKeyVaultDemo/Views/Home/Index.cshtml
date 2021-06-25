@@ -1,0 +1,29 @@
+﻿@model List<AzureKeyVaultDemo.Models.BaseRecordModel>
+@{
+    ViewBag.Title = "Home Page";
+    var list = Model;
+}
+<div class="jumbotron">
+    A demo retrieving a Secret from Azure KeyVault to store a connectionString, utililizing Azure ConfigBuilder
+</div>
+
+<div class="row">
+    <div class="col">
+        <h4>MyConnectionString</h4>
+        <code>
+            @ViewBag.ConnectionString
+        </code>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col">
+        <h4>A list of entities retrieved from SQL via connectionString stored in KeyVault</h4>
+        <ul>
+            @foreach (var item in list)
+            {
+                <li>@item.Id - @item.Name</li>
+            }
+        </ul>
+    </div>
+</div>
